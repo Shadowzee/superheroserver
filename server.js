@@ -15,6 +15,32 @@ app.listen(8000, () => {
     console.log('Server started!')
   })
 
-  app.route('/api/cats').post((req, res) => {
-    res.send(201, req.body)
+  app.route('/superhero').post((req, res) => {
+      var inputdata=req.body.input;
+      var output="Invalid superhero number";
+var superheroes={
+    "SUPERMAN":78737626,
+    "HULK":4855,
+    "THOR":8467,
+    "ROBIN":76246,
+    "IRONMAN":4766626,
+    "GHOSTRIDER":4467874337,
+    "CAPTAINAMERICA":22782462637422,
+    "FLASH":35274,
+    "WOLVERINE":965837463,
+    "BATMAN":228626,
+    "BLADE":25233,
+    "PHANTOM":7426866,
+    "SPIDERMAN":774337626,
+    "BLACKWIDOW":2522594369,
+    "HELLBOY":4355269,
+    "PUNISHER":78647437
+}
+for(var key in superheroes){
+    if("0 "+superheroes[key]==inputdata){
+output=key;
+break;
+    }
+}
+    res.send(201, {"result":output})
   })
